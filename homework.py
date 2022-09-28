@@ -1,5 +1,5 @@
+from dataclasses import asdict, dataclass
 from typing import Dict, Type
-from dataclasses import dataclass, asdict
 
 
 @dataclass
@@ -48,7 +48,7 @@ class Training:
     def get_spent_calories(self) -> float:
         """Получить количество затраченных калорий."""
         raise NotImplementedError(
-            "Нужно определить метод get_spent_calories()"
+            'Нужно определить метод get_spent_calories()'
         )
 
     def show_training_info(self) -> InfoMessage:
@@ -137,8 +137,7 @@ def read_package(workout_type: str, data: list) -> Training:
 
     if workout_type in type_of_sport:
         return type_of_sport[workout_type](*data)
-    else:
-        raise ValueError("Такой тренировки не найдено!")
+    raise ValueError('Такой тренировки не найдено!')
 
 
 def main(training: Training) -> None:
